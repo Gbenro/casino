@@ -1234,6 +1234,23 @@ contract usingOraclize {
 }
 // </ORACLIZE_API>
 
+contract CasinoFactory{
+    address [] public deployedGames;
+
+    function createGame (uint minimum, uint maxAmountOfBets) public{
+            address newGame =   new Casino (minimum, maxAmountOfBets);
+            deployedGames.push(newGame);
+    }
+
+    function getDeployedGames() public view returns (address[]){
+
+            return deployedGames;
+    }
+
+    
+}
+
+
 
 
 /// @title Contract to bet Ether for a number and win randomly when the number of bets is met.
